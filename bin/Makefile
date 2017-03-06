@@ -117,6 +117,6 @@ local-smack:
 clean-local-smack:
 	rm -rf $(SMACKPATH)/build
 
-local-tools: local-z3 local-boogie local-smack
+local-tools: local-boogie local-smack
 
-clean-local-tools: clean-local-smack clean-local-boogie clean-local-z3
+clean-local-tools: clean-local-smack clean-local-boogie 
