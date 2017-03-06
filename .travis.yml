@@ -1,8 +1,10 @@
 dist: trusty
 sudo: required
+language: c
+
 os:
   - linux
 
 script: 
-  - .travis/install-ct-verif.sh
+  - .travis/install_ctverif.sh
   
