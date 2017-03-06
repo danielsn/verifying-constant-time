@@ -6,5 +6,6 @@ os:
   - linux
 
 script: 
-  - .travis/install_ctverif.sh
+  - .travis/install_ctverif.sh && ./travis/test_pass.sh
+  
   
