@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -x
+
 # Set these flags to control various installation options
 INSTALL_DEPENDENCIES=1
 BUILD_Z3=1
@@ -39,7 +41,7 @@ DEPENDENCIES+=" ruby2.2"
 # Install core dependencies from packages
 sudo add-apt-repository -y "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.5 main"
 ${WGET} -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-sudo add-apt-repository ppa:brightbox/ruby-ng-experimental # for ruby2.2
+sudo add-apt-repository -y ppa:brightbox/ruby-ng-experimental # for ruby2.2
 sudo apt-get update
 sudo apt-get install -y ${DEPENDENCIES}
 sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.5 20
