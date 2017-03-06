@@ -37,7 +37,7 @@ DEPENDENCIES+=" clang-3.5 llvm-3.5 mono-complete libz-dev libedit-dev"
 DEPENDENCIES+=" ruby2.2"
 
 # Install core dependencies from packages
-sudo add-apt-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.5 main"
+sudo add-apt-repository -y "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.5 main"
 ${WGET} -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
 sudo add-apt-repository ppa:brightbox/ruby-ng-experimental # for ruby2.2
 sudo apt-get update

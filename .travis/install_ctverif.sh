@@ -7,9 +7,13 @@ pwd
 #./z3/z3 -h
 #cd $PROJECT_NAME
 pwd
+echo "a"
 git submodule init tools/smack tools/bam-bam-boogieman
+echo "b"
 git submodule init tools/boogie tools/z3
+echo "c"
 git submodule update
+echo "d"
 cd bin
 ./provision.sh
 #cd ../..
