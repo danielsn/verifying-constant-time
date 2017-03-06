@@ -11,11 +11,11 @@ BASE           =$(notdir $(EXAMPLE))
 MODELFILE     ?=$(WD)/$(BASE:.c:.model)
 
 
-Z3PATH        ?=${PWD}/../tools/z3
-SMACKPATH     ?=${PWD}/../tools/smack
-BAMPATH       ?=${PWD}/../tools/bam-bam-boogieman
-BOOGIEPATH    ?=${PWD}/../tools/boogie
-CORRALPATH    ?=${PWD}/../tools/corral
+Z3PATH        ?=${CURDIR}/../tools/z3
+SMACKPATH     ?=${CURDIR}/../tools/smack
+BAMPATH       ?=${CURDIR}/../tools/bam-bam-boogieman
+BOOGIEPATH    ?=${CURDIR}/../tools/boogie
+CORRALPATH    ?=${CURDIR}/../tools/corral
 
 VERIFIER      ?=boogie
 
