@@ -36,7 +36,7 @@ DEPENDENCIES="cmake python-yaml unzip wget"
 
 Z3_DOWNLOAD_LINK="https://github.com/Z3Prover/z3/releases/download/z3-4.4.1/z3-4.4.1-x64-ubuntu-14.04.zip"
 Z3_DOWNLOAD_FILE="z3-4.4.1-x64-ubuntu-14.04"
-Z3_TARGET_DIR= "../tools/z3/build"
+Z3_TARGET_DIR="../tools/z3/build"
 DEPENDENCIES+=" clang-3.5 llvm-3.5 mono-complete libz-dev libedit-dev"
 DEPENDENCIES+=" ruby2.2"
 
