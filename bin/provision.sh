@@ -36,6 +36,7 @@ DEPENDENCIES="cmake python-yaml unzip wget"
 
 Z3_DOWNLOAD_LINK="https://github.com/Z3Prover/z3/releases/download/z3-4.4.1/z3-4.4.1-x64-ubuntu-14.04.zip"
 Z3_DOWNLOAD_FILE="z3-4.4.1-x64-ubuntu-14.04"
+Z3_TARGET_DIR= "../tools/z3/build"
 DEPENDENCIES+=" clang-3.5 llvm-3.5 mono-complete libz-dev libedit-dev"
 DEPENDENCIES+=" ruby2.2"
 
@@ -53,8 +54,8 @@ sudo update-alternatives --install /usr/bin/llvm-link llvm-link /usr/bin/llvm-li
 # Install z3 from binary
 wget $Z3_DOWNLOAD_LINK
 unzip "${Z3_DOWNLOAD_FILE}.zip"
-ln -s "${Z3_DOWNLOAD_FILE}/bin" "tools/z3/build"
-ls ../tools/z3/build
+ln -s "${Z3_DOWNLOAD_FILE}/bin" $Z3_TARGET_DIR
+ls $Z3_TARGET_DIR
 
 # Build local version of the tools
 make local-tools
