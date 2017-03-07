@@ -54,7 +54,7 @@ sudo update-alternatives --install /usr/bin/llvm-link llvm-link /usr/bin/llvm-li
 # Install z3 from binary
 wget $Z3_DOWNLOAD_LINK
 unzip "${Z3_DOWNLOAD_FILE}.zip"
-ln -s "${Z3_DOWNLOAD_FILE}/bin" $Z3_TARGET_DIR
+ln -s $(pwd)/${Z3_DOWNLOAD_FILE}/bin ../tools/z3/build
 ls $Z3_TARGET_DIR
 
 # Build local version of the tools
