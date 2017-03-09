@@ -1,10 +1,12 @@
 #!/bin/bash
 
-set -e
 set -x
+set -e
 
 git clone https://github.com/smackers/smack.git -b develop --depth=1
+echo "a"
 cd smack/bin
+pwd
 ./build.sh
 
 
