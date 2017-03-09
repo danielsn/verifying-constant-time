@@ -15,13 +15,11 @@ addons:
 	- ruby2.3
 	- ruby2.3-dev
 
-osx_image: xcode8
-
 os:
   - linux
 
 script:
 	- pwd
-	- ruby -v
+	- ruby --version
 	- gem install --pre bam-bam-boogieman
 	
