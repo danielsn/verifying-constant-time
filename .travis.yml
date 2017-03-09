@@ -5,15 +5,15 @@ addons:
     apt:
       sources:
         - ubuntu-toolchain-r-test
-	- brightbox/ruby-ng
+        - brightbox/ruby-ng
       packages:
         - gcc-6
         - g++-6
         - indent
         - cppcheck
         - kwstyle
-	- ruby2.3
-	- ruby2.3-dev
+        - ruby2.3
+        - ruby2.3-dev
 
 os:
   - linux
