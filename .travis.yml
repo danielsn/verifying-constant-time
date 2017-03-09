@@ -1,0 +1,27 @@
+sudo: true
+language: c
+
+addons:
+    apt:
+      sources:
+        - ubuntu-toolchain-r-test
+	- brightbox/ruby-ng
+      packages:
+        - gcc-6
+        - g++-6
+        - indent
+        - cppcheck
+        - kwstyle
+	- ruby2.3
+	- ruby2.3-dev
+
+osx_image: xcode8
+
+os:
+  - linux
+
+script:
+	- pwd
+	- ruby -v
+	- gem install --pre bam-bam-boogieman
+	
