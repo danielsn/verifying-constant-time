@@ -20,6 +20,4 @@ os:
 
 script:
   - pwd
-  - ruby --version
-  - gem install --pre bam-bam-boogieman
 	
