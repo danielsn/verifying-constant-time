@@ -18,8 +18,7 @@ os:
 script:
   - pwd
   - ruby --version
-  - ./travis/install_smack.sh
-  - git clone https://github.com/smackers/smack.git -b develop --depth=1
-  - ls
+  - .travis/install_smack.sh
+  - ls 
   - gem install --pre bam-bam-boogieman
   
