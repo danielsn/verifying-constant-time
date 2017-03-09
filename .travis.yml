@@ -11,7 +11,7 @@ addons:
         - indent
         - cppcheck
         - kwstyle
-	- mono-complete
+        - mono-complete
 
 os:
   - linux
