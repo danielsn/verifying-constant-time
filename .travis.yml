@@ -27,3 +27,5 @@ script:
   - which clang
   - clang --version
   - echo $PATH
+  - which clang-3.7
+  - which clang++-3.7
