@@ -11,7 +11,6 @@ addons:
         - indent
         - cppcheck
         - kwstyle
-        - mono-complete
 
 os:
   - linux
@@ -19,8 +18,7 @@ os:
 script:
   - pwd
   - ruby --version
-  - mono --version
   - .travis/install_smack.sh
-  - ls 
+  - mono --version
   - gem install --pre bam-bam-boogieman
   
