@@ -17,6 +17,7 @@ os:
   - linux
 
 script:
+  - wget --no-verbose --method=GET -qO - http://llvm-apt.ecranbleu.org/apt/llvm-snapshot.gpg.key
   - wget --no-verbose --method=GET -qO - http://llvm-apt.ecranbleu.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
 #  - pwd
 #  - ruby --version
