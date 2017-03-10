@@ -1,11 +1,11 @@
 sudo: true
 language: c
 
-#addons:
-#    apt:
-#      sources:
-#        - ubuntu-toolchain-r-test
-#      packages:
+addons:
+    apt:
+      sources:
+        - ubuntu-toolchain-r-test
+      packages:
 #        - gcc-6
 #        - g++-6
 #        - indent
