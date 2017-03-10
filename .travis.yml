@@ -17,12 +17,10 @@ os:
   - linux
 
 script:
-  - wget -qO - http://llvm-apt.ecranbleu.org/apt/llvm-snapshot.gpg.key
-  - wget -qO - http://llvm-apt.ecranbleu.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-#  - pwd
-#  - ruby --version
-#  - mono --version
-#  - .travis/install_smack.sh
-#  - ls 
-#  - gem install --pre bam-bam-boogieman
+  - pwd
+  - ruby --version
+  - mono --version
+  - .travis/install_smack.sh
+  - ls 
+  - gem install --pre bam-bam-boogieman
   
