@@ -5,7 +5,7 @@ addons:
     apt:
       sources:
         - ubuntu-toolchain-r-test
-     packages:
+      packages:
         - gcc-6
         - g++-6
         - indent
@@ -20,8 +20,7 @@ script:
   - pwd
   - ruby --version
   - mono --version
-  - wget --no-verbose --method=GET -qO - http://llvm-apt.ecranbleu.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-#  - .travis/install_smack.sh
-#  - ls 
-#  - gem install --pre bam-bam-boogieman
+  - .travis/install_smack.sh
+  - ls 
+  - gem install --pre bam-bam-boogieman
   
