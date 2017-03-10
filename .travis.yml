@@ -11,12 +11,16 @@ addons:
 #        - indent
 #        - cppcheck
 #        - kwstyle
-        - mono-complete
+#        - mono-complete
 
 os:
   - linux
 
 script:
+  - echo "deb http://download.mono-project.com/repo/debian wheezy-libtiff-compat main" | sudo tee -a /etc/apt/sources.list.d/mono-xamarin.list
+  - sudo apt-get update
+  - sudo apt-get install mono-complete
+  - mono --version
   - git clone https://github.com/boogie-org/boogie.git
   - cd boogie
   - wget https://nuget.org/nuget.exe
