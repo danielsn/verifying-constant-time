@@ -11,10 +11,13 @@ language: c
 #        - indent
 #        - cppcheck
 #        - kwstyle
-#        - mono-complete
+        - mono-complete
 
 os:
   - linux
 
 script:
-  - wget --no-verbose  google.com; wget --method=GET google.com
+  - git clone https://github.com/boogie-org/boogie.git
+  - cd boogie
+  - wget https://nuget.org/nuget.exe
+  - mono ./nuget.exe restore Source/Boogie.sln
