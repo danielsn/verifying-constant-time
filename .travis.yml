@@ -17,7 +17,7 @@ os:
   - linux
 
 script:
-  - sudo apt-get purge -y gcc-6 g++-6
+  - sudo apt-get purge -ycpp-6 g++-6 gcc-6 gcc-6-base libgcc-6-dev libstdc++-6-dev
   - gcc --version
   - ruby --version
   - .travis/install_smack.sh
