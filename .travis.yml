@@ -7,8 +7,6 @@ addons:
       sources:
         - ubuntu-toolchain-r-test
       packages:
-        - gcc-6
-        - g++-6
         - indent
         - cppcheck
         - kwstyle
@@ -17,10 +15,10 @@ os:
   - linux
 
 script:
-  - sudo apt-get purge -y cpp-6 g++-6 gcc-6 gcc-6-base libgcc-6-dev libstdc++-6-dev
   - gcc --version
   - ruby --version
   - .travis/install_smack.sh
   - mono --version
   - gem install --pre bam-bam-boogieman
+  - 
   
