@@ -15,10 +15,5 @@ os:
   - linux
 
 script:
-  - gcc --version
-  - ruby --version
-  - .travis/install_smack.sh
-  - mono --version
-  - gem install --pre bam-bam-boogieman
-  - 
+  - pwd
   
