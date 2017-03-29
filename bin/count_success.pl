@@ -24,5 +24,5 @@ while (my $line = <$file>){
 if($verified == $expected_success and $errors == $expected_failure){
    print "verified: $verified errors: $errors as expected\n";
 } else {
-    die "ERROR: Expected verified: $verified errors: $errors, got verified: $expected_success and errors: $expected_failure";
+    die "ERROR: Expected verified: $expected_success and errors: $expected_failure. Got  verified: $verified errors: $errors.";
 }
