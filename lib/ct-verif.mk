@@ -15,11 +15,13 @@ cflags  ?=
 extras  ?=
 prereqs ?=
 secure  ?= true
+timing  ?=
 
 flags = $(strip \
 	$(if $(strip $(unroll)),--unroll-limit $(unroll)) \
 	$(if $(strip $(looplim)),--loop-limit $(looplim)) \
 	$(if $(strip $(time)),--time-limit $(time)) \
+	$(if $(strip $(timing)),--timing) \
 	$(if $(strip $(cflags)),--clang-options="$(cflags)") \
 )
 

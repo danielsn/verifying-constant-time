@@ -72,6 +72,11 @@ def get_parameters
       params[:verify] = p
     end
 
+    opts.on('--timing-analysis', "Perform timing analysis") do |p|
+      params[:timing] = p
+    end
+
+
   end.parse!
   params[:sources] = ARGV
 
@@ -122,6 +127,7 @@ begin
     flags << "--entry-points #{params[:entries] * ","}"
     flags << "-ll #{params[:a]}.ll"
     flags << "-bpl #{params[:a]}"
+    flags << "--timing-annotations" if params[:timing]
     puts `#{echo} smack #{flags * " "} #{params[:sources] * " "}`
     raise "failed to compile #{params[:sources] * ", "}" unless $?.success?
     warn "warning: module contains inline assembly" \
@@ -136,7 +142,9 @@ begin
   end
 
   if params[:product]
-    puts `#{echo} bam -q -i #{params[:a]} --shadowing -o #{params[:b]}`
+    flags = []
+    flags << "--cost-modeling" if params[:timing]
+    puts `#{echo} bam -q -i #{params[:a]} #{flags * " "} --shadowing -o #{params[:b]}`
     raise "failed to construct product program" unless $?.success?
   end
 
