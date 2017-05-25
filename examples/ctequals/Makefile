@@ -8,6 +8,7 @@ include ../../lib/ct-verif.mk
 #goals += foo3@clequals.c
 #goals += foo4@clequals.c
 #goals += foo5@clequals.c
+#goals += foo5_1@clequals.c
 #goals += foo6@clequals.c
 goals += foo6_1@clequals.c
 #goals += foo7@clequals.c
