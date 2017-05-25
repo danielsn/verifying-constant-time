@@ -2,8 +2,6 @@
 #include <smack.h>
 #include "ct-verif.h"
 
-
-
 //This ought to be code balanced
 int foo(int a, int k) {
   
@@ -104,12 +102,12 @@ float foo5(float b, int k)
   if (k)
     a = b * b;
   else
-    a = b + b;
+    a = b;
 
   if (!k)
     a +=  b + b ;
   else
-    a += b * b;
+    a += b;
 
   return a;
 }

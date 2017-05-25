@@ -9,10 +9,10 @@ include ../../lib/ct-verif.mk
 #goals += foo4@clequals.c
 #goals += foo5@clequals.c
 #goals += foo6@clequals.c
-#goals += foo6_1@clequals.c
+goals += foo6_1@clequals.c
 #goals += foo7@clequals.c
 #goals += foo8@clequals.c
 #goals += foo9@clequals.c
-goals += foo10@clequals.c
+#goals += foo10@clequals.c
 
 timing += true
