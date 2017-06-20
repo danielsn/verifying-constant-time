@@ -1,8 +1,13 @@
 include ../../lib/ct-verif.mk
+unroll += 3
 
 #goals += s2n_constant_time_equals@ctequals.c
 #goals += dummy@ctequals.c
 #goals += foo@clequals.c
+#goals += foo_0@clequals.c
+#goals += foo0@clequals.c
+#goals += foo0_1@clequals.c
+#goals += foo0_2@clequals.c
 #goals += foo1@clequals.c
 #goals += foo2@clequals.c
 #goals += foo3@clequals.c
@@ -10,10 +15,21 @@ include ../../lib/ct-verif.mk
 #goals += foo5@clequals.c
 #goals += foo5_1@clequals.c
 #goals += foo6@clequals.c
-goals += foo6_1@clequals.c
+#goals += foo6_1@clequals.c
 #goals += foo7@clequals.c
 #goals += foo8@clequals.c
 #goals += foo9@clequals.c
 #goals += foo10@clequals.c
-
+#goals += foo11@clequals.c
+#goals += foo11_1@clequals.c
+#goals += foo12_nct@clequals.c
+#goals += foo12_ct@clequals.c
+#goals += foo12_nct_struct@clequals.c
+#goals += foo12_ct_struct@clequals.c
+#goals += foo12_ct_struct_fnval@clequals.c
+#goals += foo12_ct_struct_fnptr@clequals.c
+goals += foo12_ct_struct_fnmalloc@clequals.c
+#goals += foo12_nct_struct_fnval@clequals.c
+#goals += foo12_nct_struct_fnptr@clequals.c
+#goals += foo12_nct_struct_fnmalloc@clequals.c
 timing += true

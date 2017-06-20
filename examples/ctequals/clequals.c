@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <stdlib.h>
 #include <smack.h>
 #include "ct-verif.h"
 
@@ -25,6 +26,90 @@ int foo(int a, int k) {
 
   return a;
 }
+
+int foo_0(int a, int k) {
+  
+  public_in(__SMACK_value(a));
+
+  int x;
+  if (k) {
+    x = 1;
+  } else {
+    x = 2;
+  }
+    
+  for (int i = 0; i < x; ++i) {
+    a += 1;
+  }
+
+  if(x == 1) {
+    ++a;
+    a += 1;
+  }
+
+  return a;
+  __SMACK_code("assume {:smack.timingDiff 2} true");
+}
+
+int foo0(int a, int k) {
+  
+  public_in(__SMACK_value(a));
+  
+  for (int i = 0; i < 1; ++i) {
+    a += 1;
+  }
+
+  return a;
+}
+
+int foo0_1(int a, int k) {
+  
+  public_in(__SMACK_value(a));
+
+  for (int i = 0; i < 1; ++i) {
+    a += 1;
+  }
+
+  return a;
+}
+
+
+int foo0_2
+(int a, int k) {
+  
+  public_in(__SMACK_value(a));
+
+  int x = 1;
+    
+  for (int i = 0; i < x; ++i) {
+    a += 1;
+  }
+
+  if(x == 1) {
+    a += 1;
+  }
+
+  return a;
+}
+
+int foo0_3
+(int a, int k) {
+  
+  public_in(__SMACK_value(a));
+
+  int x = 1;
+    
+  for (int i = 0; i < x; ++i) {
+    a += 1;
+  }
+
+  if(x == 1) {
+    a += 1;
+  }
+
+  return a;
+}
+
 
 //Code Balanced: yes
 //Current status: succeeds
@@ -238,6 +323,134 @@ int foo10(int a, int k) {
   return a;
 }
 
+//should fail because *p is private
+int foo11(int a, int* p) {
+  if(*p) {
+    return a;
+  } else {
+    return a * a;
+  }
+}
+
+//treat p as an array of size 1,
+//__SMACK_value(*p) throws an exception
+int foo11_1(int a, int* p) {
+  public_in(__SMACK_values(p,1));
+  
+  if(*p) {
+    return a;
+  } else {
+    return a * a;
+  }
+}
+
+struct bar {
+  int a;
+  int b;
+};
+
+//non ct
+int foo12_nct(int a, int b) {
+  if (a) return b;
+  else return b * b;
+}
+
+//ct
+int foo12_ct(int a, int b) {
+  public_in(__SMACK_value(a));
+  if (a) return b;
+  else return b * b;
+}
+
+int foo12_nct_struct(int a, int b) {
+
+  struct bar x;
+  x.a = a;
+  x.b = b;
+  
+  
+  if (x.a) return x.b;
+  else return x.b * x.b;
+}
+
+int foo12_ct_struct(int a, int b) {
+  public_in(__SMACK_value(a));
+
+  struct bar x;
+  x.a = a;
+  x.b = b;
+  
+  
+  if (x.a) return x.b;
+  else return x.b * x.b;
+}
+
+//helper functions
+int foo12_value_impl (struct bar x) {
+  if (x.a) return x.b;
+  else return x.b * x.b;
+}
+
+int foo12_ptr_impl (struct bar* x) {
+  if (x->a) return x->b;
+  else return x->b * x->b;
+}
 
 
+int foo12_ct_struct_fnval(int a, int b) {
+  public_in(__SMACK_value(a));
+
+  struct bar x;
+  x.a = a;
+  x.b = b;
+  
+  return foo12_value_impl(x);
+}
+
+// like 12_1 but strct by ref
+int foo12_ct_struct_fnptr(int a, int b) {
+  public_in(__SMACK_value(a));
+
+  struct bar x;
+  x.a = a;
+  x.b = b;
+  
+  return foo12_ptr_impl(&x);
+}
+
+int foo12_ct_struct_fnmalloc(int a, int b) {
+  public_in(__SMACK_value(a));
+
+  struct bar* x = malloc(sizeof(struct bar)) ;
+  x->a = a;
+  x->b = b;
+  
+  return foo12_ptr_impl(x);
+}
+
+int foo12_nct_struct_fnval(int a, int b) {
+  struct bar x;
+  x.a = a;
+  x.b = b;
+  
+  return foo12_value_impl(x);
+}
+
+// like 12_1 but strct by ref
+int foo12_nct_struct_fnptr(int a, int b) {
+
+  struct bar x;
+  x.a = a;
+  x.b = b;
+  
+  return foo12_ptr_impl(&x);
+}
+
+int foo12_nct_struct_fnmalloc(int a, int b) {
+  struct bar* x = malloc(sizeof(struct bar)) ;
+  x->a = a;
+  x->b = b;
+  
+  return foo12_ptr_impl(x);
+}
 
